@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Property Goddess Africa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">PROPERTY GODDESS AFRICA</a>
+  <div class="nav-links">
+    <a href="property-development-sales.html" class="">Property Development & Sales</a>
+<a href="film-tv-production.html" class="">Film, TV & Production</a>
+<a href="events.html" class="">Events</a>
+<a href="about-us.html" class="active">About Us</a>
+<a href="index.html#contact" class="">Contact</a>
+  </div>
+  <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+</nav>
+
+<div class="page-wrap">
+
+<div class="page-wrap" style="padding-top:64px;">
+<div class="about-grid">
+  <div class="about-left">
+    <p class="about-label">Property Owners Wanted</p>
+    <h1 class="about-title">List With<br>Property Goddess Africa</h1>
+    <div class="gold-bar"></div>
+    <p class="about-body">Own a luxury mansion, modern home or event-friendly property?</p>
+    <p class="about-body">Property Goddess Africa is expanding its exclusive portfolio and inviting homeowners with standout properties to list with us.</p>
+    <p class="about-label" style="margin-bottom:12px;">We Place Properties In:</p>
+    <ul class="about-list">
+      <li>Events</li>
+      <li>TV &amp; Film Productions</li>
+      <li>Music Videos</li>
+      <li>Photoshoots</li>
+    </ul>
+    <p class="about-label" style="margin:20px 0 12px;">What We Offer:</p>
+    <ul class="about-list" style="margin-bottom:24px;">
+      <li>Professional photography of your space</li>
+      <li>Access to premium, vetted clients</li>
+      <li>Full facilitation and property management</li>
+      <li>Clear contracts and seamless coordination</li>
+    </ul>
+    <p class="about-trust">Trusted by &nbsp;Netflix &nbsp;&middot;&nbsp; Showmax &nbsp;&middot;&nbsp; MTV Base &nbsp;&middot;&nbsp; Sony Music SA &nbsp;&middot;&nbsp; Mzansi Magic</p>
+    <p style="font-size:13px;color:var(--lgrey);margin-bottom:24px;line-height:1.8;">
+      Turn your property into a high-value location while we protect, manage and market it with care.
+    </p>
+    <a href="mailto:newlocations@propertygoddess.africa" class="about-email-btn">newlocations@propertygoddess.africa</a>
+    <p class="about-tagline">"Property is the stage. We curate the experience."</p>
+    <div style="margin-top:24px;font-size:11px;color:var(--grey);line-height:2;">
+      info@propertygoddess.africa &nbsp;|&nbsp; +27 79 986 3670<br>
+      @property_goddess &nbsp;|&nbsp; @progoddessafrica
+    </div>
+  </div>
+  <div class="about-right">
+    <img src="assets/images/about-us-img.jpg" alt="Property Goddess Africa">
+  </div>
+</div>
+</div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">PROPERTY GODDESS AFRICA</div>
+      <p class="footer-desc">Luxury locations for film, TV, production, events and property sales across South Africa.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="film-tv-production.html">Film, TV &amp; Production</a></li>
+        <li><a href="property-development-sales.html">Property Development &amp; Sales</a></li>
+        <li><a href="events.html">Events &amp; Conferencing</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:info@propertygoddess.africa">info@propertygoddess.africa</a></li>
+        <li><a href="mailto:newlocations@propertygoddess.africa">newlocations@propertygoddess.africa</a></li>
+        <li><a href="tel:+27799863670">+27 79 986 3670</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Follow</div>
+      <ul class="footer-links">
+        <li><a href="#">@property_goddess</a></li>
+        <li><a href="#">@progoddessafrica</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Property Goddess Africa. All rights reserved.</span>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal-box"></div>
+</div>
+
+<script>
+// Mobile nav toggle
+const toggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (toggle) toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+// Modal system
+const backdrop = document.getElementById('modal-backdrop');
+function openModal(data) {
+  if (!backdrop) return;
+  const box = backdrop.querySelector('.modal-box');
+
+  // Gallery
+  const gallery = data.images || [];
+  let galleryHTML = '';
+  if (gallery.length > 0) {
+    galleryHTML = `<div class="modal-gallery">
+      <div class="modal-gallery-main"><img id="modal-main-img" src="${gallery[0]}" alt=""></div>
+      ${gallery.slice(1).map(src => `<div class="modal-gallery-thumb" onclick="swapMain('${src}')"><img src="${src}" alt=""></div>`).join('')}
+    </div>`;
+  }
+
+  const priceHTML = data.price ? `<div class="modal-price">${data.price}</div>` : '';
+  const locationHTML = data.location ? `<div class="modal-location">Location: ${data.location}</div>` : '';
+  const featuresHTML = data.features
+    ? `<ul class="modal-features">${data.features.map(f => `<li>${f}</li>`).join('')}</ul>` : '';
+
+  box.innerHTML = `
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="modal-content">
+      ${galleryHTML}
+      <h2 class="modal-title">${data.title}</h2>
+      ${priceHTML}
+      ${locationHTML}
+      <p class="modal-desc">${data.desc}</p>
+      ${featuresHTML}
+      <div class="modal-actions">
+        <a href="index.html#contact" class="btn btn-gold">Request a Quote</a>
+        <button class="btn btn-outline" onclick="closeModal()">Close</button>
+      </div>
+    </div>`;
+
+  backdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  if (backdrop) { backdrop.classList.remove('open'); document.body.style.overflow = ''; }
+}
+function swapMain(src) {
+  const main = document.getElementById('modal-main-img');
+  if (main) main.src = src;
+}
+if (backdrop) backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
