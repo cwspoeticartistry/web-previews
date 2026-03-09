@@ -3,184 +3,274 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Property Development & Sales | Preview — propertygoddess.africa</title>
+<title>Property Development & Sales | Property Goddess Africa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<span class="pg-page-name" data-page="Property Development & Sales" style="display:none"></span>
 
-<!-- Preview Ribbon -->
-<div class="preview-ribbon">
-  <div><span class="badge">New Page</span>Property Development &amp; Sales — Same grid layout as TV section. 6 property listings from PowerPoint presentation.</div>
-  <div class="pg-nav-links">
-    <a href="film-tv-production.html">&larr; Film, TV &amp; Production</a>
-    <a href="events.html">Next: Events &rarr;</a>
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">PROPERTY GODDESS AFRICA</a>
+  <div class="nav-links">
+    <a href="property-development-sales.html" class="active">Property Development & Sales</a>
+<a href="film-tv-production.html" class="">Film, TV & Production</a>
+<a href="events.html" class="">Events</a>
+<a href="about-us.html" class="">About Us</a>
+<a href="index.html#contact" class="">Contact</a>
+  </div>
+  <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+</nav>
+
+<div class="page-wrap">
+
+<div class="page-hero">
+  <div class="page-hero-bg"><img src="assets/images/prop-hero.jpg" alt="Property Development" loading="eager"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <h1>Property Development &amp; Sales</h1>
+    <p class="page-hero-sub">Luxury Estates Available for Purchase &amp; Rental</p>
   </div>
 </div>
 
-<!-- Site Nav -->
-<nav class="pg-nav">
-  <a href="homepage.html" class="pg-logo-text">Property Goddess Africa</a>
-  <ul class="pg-menu">
-    <li><a href="film-tv-production.html">FILM, TV &amp; PRODUCTION</a></li>
-    <li><a href="property-development-sales.html" class="active">PROPERTY DEVELOPMENT &amp; SALES</a></li>
-    <li><a href="events.html">EVENTS &amp; LOCATION CONFERENCING</a></li>
-    <li><a href="about.html">ABOUT US</a></li>
-    <li><a href="#contact" class="btn-quote">REQUEST A QUOTE</a></li>
-  </ul>
-</nav>
-
-<!-- Hero -->
-<section class="pg-hero" style="min-height:60vh;">
-  <div class="pg-hero-bg" style="background-image:url('https://propertygoddess.africa/wp-content/uploads/2026/03/1-luxury-property-aerial-view.jpg');"></div>
-  <div class="pg-hero-overlay"></div>
-  <div class="pg-hero-content">
-    <h1>Property Development &amp; Sales</h1>
-    <p class="slogan">Luxury Estates Available for Purchase &amp; Rental</p>
+<section class="section">
+  <p class="section-label">Our Portfolio</p>
+  <h2 class="section-title">Available Properties</h2>
+  <div class="gold-bar"></div>
+  <p class="section-sub">Browse our exclusive portfolio of luxury residential estates. Each property has been curated for its architectural distinction, lifestyle offering and investment potential.</p>
+  <div class="grid grid-3">
+    <div class="prop-card">
+  <div class="prop-img">
+    <img src="assets/images/dune-1.jpg" alt="Dune House" loading="lazy">
+    <div class="prop-tag">FOR SALE</div>
+  </div>
+  <div class="prop-body">
+    <div class="prop-name">Dune House</div>
+    <div class="prop-price">R 14,500,000</div>
+    <div class="prop-location">&#128205; Johannesburg</div>
+    <div class="prop-actions">
+      <button class="btn btn-gold btn-sm" onclick="openModal({title:'Dune House',price:'R 14,500,000',location:'Johannesburg',images:["assets/images/dune-1.jpg", "assets/images/dune-2.jpg", "assets/images/dune-3.jpg", "assets/images/dune-4.jpg"],desc:'A breathtaking architectural statement nestled in the exclusive northern suburbs of Johannesburg. Featuring soaring volumes, floor-to-ceiling glass and bespoke finishes.',features:["5 Bedrooms", "6 Bathrooms", "Heated pool", "Home cinema", "Triple garage", "Smart home system", "Staff quarters", "Landscaped gardens"]})">More Info</button>
+      <a href="index.html#contact" class="btn btn-dark btn-sm">Enquire</a>
+    </div>
+  </div>
+</div><div class="prop-card">
+  <div class="prop-img">
+    <img src="assets/images/embassy-1.jpg" alt="The Embassy" loading="lazy">
+    <div class="prop-tag">FOR SALE</div>
+  </div>
+  <div class="prop-body">
+    <div class="prop-name">The Embassy</div>
+    <div class="prop-price">R 22,000,000</div>
+    <div class="prop-location">&#128205; Johannesburg</div>
+    <div class="prop-actions">
+      <button class="btn btn-gold btn-sm" onclick="openModal({title:'The Embassy',price:'R 22,000,000',location:'Johannesburg',images:["assets/images/embassy-1.jpg", "assets/images/embassy-2.jpg", "assets/images/embassy-4.jpg"],desc:'A grand Sandton estate of extraordinary scale. The Embassy commands attention with its imposing facade, sweeping interiors and world-class entertainment facilities.',features:["7 Bedrooms", "8 Bathrooms", "Entertainment pavilion", "Wine cellar", "Gym & spa", "Double garage", "24hr security", "Private driveway"]})">More Info</button>
+      <a href="index.html#contact" class="btn btn-dark btn-sm">Enquire</a>
+    </div>
+  </div>
+</div><div class="prop-card">
+  <div class="prop-img">
+    <img src="assets/images/pavilion-1.jpg" alt="Glass Pavilion" loading="lazy">
+    <div class="prop-tag">FOR SALE</div>
+  </div>
+  <div class="prop-body">
+    <div class="prop-name">Glass Pavilion</div>
+    <div class="prop-price">R 18,750,000</div>
+    <div class="prop-location">&#128205; Cape Town</div>
+    <div class="prop-actions">
+      <button class="btn btn-gold btn-sm" onclick="openModal({title:'Glass Pavilion',price:'R 18,750,000',location:'Cape Town',images:["assets/images/pavilion-1.jpg", "assets/images/pavilion-2.jpg", "assets/images/pavilion-3.jpg", "assets/images/pavilion-4.jpg"],desc:'Perched above Cape Town with uninterrupted ocean and mountain views, Glass Pavilion is a masterwork of contemporary design. Walls of glass dissolve the boundary between interior and landscape.',features:["4 Bedrooms", "5 Bathrooms", "Infinity pool", "Mountain views", "Open-plan living", "Architect designed", "Private access", "Staff accommodation"]})">More Info</button>
+      <a href="index.html#contact" class="btn btn-dark btn-sm">Enquire</a>
+    </div>
+  </div>
+</div><div class="prop-card">
+  <div class="prop-img">
+    <img src="assets/images/ocean-1.jpg" alt="Ocean's Edge Estate" loading="lazy">
+    <div class="prop-tag">FOR SALE</div>
+  </div>
+  <div class="prop-body">
+    <div class="prop-name">Ocean's Edge Estate</div>
+    <div class="prop-price">R 28,000,000</div>
+    <div class="prop-location">&#128205; Cape Town</div>
+    <div class="prop-actions">
+      <button class="btn btn-gold btn-sm" onclick="openModal({title:'Ocean's Edge Estate',price:'R 28,000,000',location:'Cape Town',images:["assets/images/ocean-1.jpg", "assets/images/ocean-2.jpg", "assets/images/ocean-3.jpg", "assets/images/ocean-4.jpg"],desc:'A rare beachfront estate offering direct ocean access on the Atlantic Seaboard. Ocean\'s Edge combines the finest materials with an unparalleled coastal lifestyle.',features:["6 Bedrooms", "7 Bathrooms", "Direct beach access", "Boat launch", "Rooftop terrace", "Private courtyard", "Guest house", "Commercial kitchen"]})">More Info</button>
+      <a href="index.html#contact" class="btn btn-dark btn-sm">Enquire</a>
+    </div>
+  </div>
+</div><div class="prop-card">
+  <div class="prop-img">
+    <img src="assets/images/winelands-1.jpg" alt="Winelands Manor" loading="lazy">
+    <div class="prop-tag">FOR SALE</div>
+  </div>
+  <div class="prop-body">
+    <div class="prop-name">Winelands Manor</div>
+    <div class="prop-price">R 12,900,000</div>
+    <div class="prop-location">&#128205; Stellenbosch</div>
+    <div class="prop-actions">
+      <button class="btn btn-gold btn-sm" onclick="openModal({title:'Winelands Manor',price:'R 12,900,000',location:'Stellenbosch',images:["assets/images/winelands-1.jpg", "assets/images/winelands-2.jpg", "assets/images/winelands-4.jpg"],desc:'A timeless Cape Dutch manor set against the Stellenbosch mountains. Surrounded by working vineyards, Winelands Manor offers a rare combination of heritage beauty and modern luxury.',features:["5 Bedrooms", "5 Bathrooms", "Working vineyard", "Wine cellar", "Tasting room", "Mountain views", "Formal gardens", "Historic architecture"]})">More Info</button>
+      <a href="index.html#contact" class="btn btn-dark btn-sm">Enquire</a>
+    </div>
+  </div>
+</div><div class="prop-card">
+  <div class="prop-img">
+    <img src="assets/images/villa-1.jpg" alt="Villa Aurum" loading="lazy">
+    <div class="prop-tag">FOR SALE</div>
+  </div>
+  <div class="prop-body">
+    <div class="prop-name">Villa Aurum</div>
+    <div class="prop-price">R 35,000,000</div>
+    <div class="prop-location">&#128205; Johannesburg</div>
+    <div class="prop-actions">
+      <button class="btn btn-gold btn-sm" onclick="openModal({title:'Villa Aurum',price:'R 35,000,000',location:'Johannesburg',images:["assets/images/villa-1.jpg", "assets/images/villa-3.jpg", "assets/images/villa-4.jpg"],desc:'The pinnacle of Johannesburg luxury living. Villa Aurum is a statement of absolute refinement — gold accents, custom furnishings and a private estate of unmatched scale and privacy.',features:["8 Bedrooms", "10 Bathrooms", "Olympic pool", "Private tennis court", "Home theatre", "Panic room", "Helicopter pad", "Staff village"]})">More Info</button>
+      <a href="index.html#contact" class="btn btn-dark btn-sm">Enquire</a>
+    </div>
+  </div>
+</div>
   </div>
 </section>
 
-<!-- Location Navigation (mirrors TV section structure) -->
-<section class="pg-section" style="padding-bottom:20px;">
-  <div style="text-align:center;margin-bottom:40px;">
-    <h2 class="pg-section-title">Available Properties</h2>
-    <div class="gold-divider"></div>
-    <p class="pg-section-sub">Exceptional properties curated for discerning buyers and investors</p>
+<div class="cta-banner">
+  <span class="cta-banner-text">Looking to list your property? We represent only the finest estates in South Africa.</span>
+  <a href="about-us.html" class="btn btn-dark">List Your Property</a>
+</div>
+
+<section class="contact-section" id="contact">
+  <div class="section-label">Get in Touch</div>
+  <h2 class="section-title">Request a Quote</h2>
+  <div class="gold-bar"></div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Let's work together</h3>
+      <div class="contact-detail"><span class="contact-label">Email</span><span>info@propertygoddess.africa</span></div>
+      <div class="contact-detail"><span class="contact-label">Listings</span><span>newlocations@propertygoddess.africa</span></div>
+      <div class="contact-detail"><span class="contact-label">Phone</span><span>+27 79 986 3670</span></div>
+      <div class="contact-detail"><span class="contact-label">Instagram</span><span>@property_goddess &nbsp;|&nbsp; @progoddessafrica</span></div>
+    </div>
+    <form class="contact-form" onsubmit="return false;">
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Email Address">
+      <input type="tel" placeholder="Phone Number">
+      <select>
+        <option value="">Enquiry Type</option>
+        <option>Film / TV / Production Location</option>
+        <option>Property Purchase or Rental</option>
+        <option>Event Venue Hire</option>
+        <option>List My Property</option>
+        <option>General Enquiry</option>
+      </select>
+      <textarea placeholder="Tell us about your project..."></textarea>
+      <button type="submit" class="btn btn-gold">Send Enquiry</button>
+    </form>
   </div>
 </section>
 
-<!-- Property Listings Grid -->
-<section style="padding:0 40px 80px;max-width:1400px;margin:0 auto;">
-  <div class="property-grid">
+</div>
 
-    <!-- Dune House -->
-    <div class="property-card">
-      <img src="https://propertygoddess.africa/wp-content/uploads/2026/03/1-dune-house-1.jpg" alt="Dune House" loading="lazy">
-      <div class="property-card-body">
-        <div class="property-card-name">Dune House</div>
-        <div class="property-card-meta">Johannesburg &nbsp;·&nbsp; Residential Estate</div>
-        <div class="property-card-price">Price on Application</div>
-        <a href="mailto:newlocations@propertygoddess.africa" class="btn-enquire">Enquire</a>
-      </div>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">PROPERTY GODDESS AFRICA</div>
+      <p class="footer-desc">Luxury locations for film, TV, production, events and property sales across South Africa.</p>
     </div>
-
-    <!-- The Embassy -->
-    <div class="property-card">
-      <img src="https://propertygoddess.africa/wp-content/uploads/2026/03/1-the-embassy-1.jpg" alt="The Embassy" loading="lazy">
-      <div class="property-card-body">
-        <div class="property-card-name">The Embassy</div>
-        <div class="property-card-meta">Pretoria &nbsp;·&nbsp; Luxury Residence</div>
-        <div class="property-card-price">Price on Application</div>
-        <a href="mailto:newlocations@propertygoddess.africa" class="btn-enquire">Enquire</a>
-      </div>
-    </div>
-
-    <!-- Glass Pavilion -->
-    <div class="property-card">
-      <img src="https://propertygoddess.africa/wp-content/uploads/2026/03/1-the-glass-pavilion-1.jpg" alt="Glass Pavilion" loading="lazy">
-      <div class="property-card-body">
-        <div class="property-card-name">Glass Pavilion</div>
-        <div class="property-card-meta">Cape Town &nbsp;·&nbsp; Contemporary Villa</div>
-        <div class="property-card-price">Price on Application</div>
-        <a href="mailto:newlocations@propertygoddess.africa" class="btn-enquire">Enquire</a>
-      </div>
-    </div>
-
-    <!-- Winelands Manor -->
-    <div class="property-card">
-      <img src="https://propertygoddess.africa/wp-content/uploads/2026/03/1-the-winelands-manor-1.jpg" alt="Winelands Manor" loading="lazy">
-      <div class="property-card-body">
-        <div class="property-card-name">Winelands Manor</div>
-        <div class="property-card-meta">Stellenbosch &nbsp;·&nbsp; Wine Estate</div>
-        <div class="property-card-price">Price on Application</div>
-        <a href="mailto:newlocations@propertygoddess.africa" class="btn-enquire">Enquire</a>
-      </div>
-    </div>
-
-    <!-- Ocean's Edge Estate -->
-    <div class="property-card">
-      <img src="https://propertygoddess.africa/wp-content/uploads/2026/03/1-ocean-s-edge-estate-1.jpg" alt="Ocean's Edge Estate" loading="lazy">
-      <div class="property-card-body">
-        <div class="property-card-name">Ocean's Edge Estate</div>
-        <div class="property-card-meta">Durban &nbsp;·&nbsp; Beachfront Estate</div>
-        <div class="property-card-price">Price on Application</div>
-        <a href="mailto:newlocations@propertygoddess.africa" class="btn-enquire">Enquire</a>
-      </div>
-    </div>
-
-    <!-- Villa Aurum -->
-    <div class="property-card">
-      <img src="https://propertygoddess.africa/wp-content/uploads/2026/03/5-villa-aurum-1.jpg" alt="Villa Aurum" loading="lazy">
-      <div class="property-card-body">
-        <div class="property-card-name">Villa Aurum</div>
-        <div class="property-card-meta">Johannesburg &nbsp;·&nbsp; Luxury Villa</div>
-        <div class="property-card-price">Price on Application</div>
-        <a href="mailto:newlocations@propertygoddess.africa" class="btn-enquire">Enquire</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- List Your Property CTA -->
-<section style="background:#0f0f0f;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 40px;text-align:center;">
-  <h2 class="pg-section-title">List Your Property</h2>
-  <div class="gold-divider"></div>
-  <p style="font-size:13px;color:var(--grey);max-width:560px;margin:0 auto 32px;line-height:1.8;letter-spacing:0.5px;">Own a luxury mansion, modern home or event-friendly property? Property Goddess Africa is expanding its exclusive portfolio and inviting homeowners to list with us.</p>
-  <a href="about.html" class="btn-enquire">Learn More &rarr;</a>
-</section>
-
-<!-- Contact -->
-<section id="contact" style="padding:60px 40px;text-align:center;">
-  <h2 class="pg-section-title" style="font-size:1.8rem;">Request a Quote</h2>
-  <div class="gold-divider"></div>
-  <p style="font-size:13px;color:var(--grey);margin-bottom:30px;">Contact us at <a href="mailto:newlocations@propertygoddess.africa" style="color:var(--gold);text-decoration:none;">newlocations@propertygoddess.africa</a></p>
-</section>
-
-<!-- Footer -->
-<footer class="pg-footer">
-  <div class="pg-footer-inner">
-    <div class="pg-footer-brand">
-      <div class="brand-name">Property Goddess Africa</div>
-      <p>Luxury locations for film, TV and production across South Africa.</p>
-    </div>
-    <div class="pg-footer-col">
-      <h4>Services</h4>
-      <ul>
+    <div>
+      <div class="footer-heading">Navigate</div>
+      <ul class="footer-links">
         <li><a href="film-tv-production.html">Film, TV &amp; Production</a></li>
         <li><a href="property-development-sales.html">Property Development &amp; Sales</a></li>
-        <li><a href="events.html">Events &amp; Location Conferencing</a></li>
+        <li><a href="events.html">Events &amp; Conferencing</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </div>
-    <div class="pg-footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="#contact">Request a Quote</a></li>
-      </ul>
-    </div>
-    <div class="pg-footer-col">
-      <h4>Contact</h4>
-      <ul>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <ul class="footer-links">
         <li><a href="mailto:info@propertygoddess.africa">info@propertygoddess.africa</a></li>
+        <li><a href="mailto:newlocations@propertygoddess.africa">newlocations@propertygoddess.africa</a></li>
         <li><a href="tel:+27799863670">+27 79 986 3670</a></li>
       </ul>
     </div>
+    <div>
+      <div class="footer-heading">Follow</div>
+      <ul class="footer-links">
+        <li><a href="#">@property_goddess</a></li>
+        <li><a href="#">@progoddessafrica</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="pg-footer-bottom">&copy; 2026 Property Goddess Africa</div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Property Goddess Africa. All rights reserved.</span>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
 </footer>
 
-<!-- Approval Bar -->
-<div class="approval-bar">
-  <span class="approval-label">Reviewing: <strong>Property Development &amp; Sales</strong> — Property cards, layout, hover states correct?</span>
-  <div class="approval-actions">
-    <button class="btn-request" id="btn-request">Request Changes</button>
-    <button class="btn-approve" id="btn-approve">Approve this page ✓</button>
-  </div>
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal-box"></div>
 </div>
 
-<script src="shared.js"></script>
+<script>
+// Mobile nav toggle
+const toggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (toggle) toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+// Modal system
+const backdrop = document.getElementById('modal-backdrop');
+function openModal(data) {
+  if (!backdrop) return;
+  const box = backdrop.querySelector('.modal-box');
+
+  // Gallery
+  const gallery = data.images || [];
+  let galleryHTML = '';
+  if (gallery.length > 0) {
+    galleryHTML = `<div class="modal-gallery">
+      <div class="modal-gallery-main"><img id="modal-main-img" src="${gallery[0]}" alt=""></div>
+      ${gallery.slice(1).map(src => `<div class="modal-gallery-thumb" onclick="swapMain('${src}')"><img src="${src}" alt=""></div>`).join('')}
+    </div>`;
+  }
+
+  const priceHTML = data.price ? `<div class="modal-price">${data.price}</div>` : '';
+  const locationHTML = data.location ? `<div class="modal-location">Location: ${data.location}</div>` : '';
+  const featuresHTML = data.features
+    ? `<ul class="modal-features">${data.features.map(f => `<li>${f}</li>`).join('')}</ul>` : '';
+
+  box.innerHTML = `
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="modal-content">
+      ${galleryHTML}
+      <h2 class="modal-title">${data.title}</h2>
+      ${priceHTML}
+      ${locationHTML}
+      <p class="modal-desc">${data.desc}</p>
+      ${featuresHTML}
+      <div class="modal-actions">
+        <a href="index.html#contact" class="btn btn-gold">Request a Quote</a>
+        <button class="btn btn-outline" onclick="closeModal()">Close</button>
+      </div>
+    </div>`;
+
+  backdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  if (backdrop) { backdrop.classList.remove('open'); document.body.style.overflow = ''; }
+}
+function swapMain(src) {
+  const main = document.getElementById('modal-main-img');
+  if (main) main.src = src;
+}
+if (backdrop) backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
 </body>
 </html>
