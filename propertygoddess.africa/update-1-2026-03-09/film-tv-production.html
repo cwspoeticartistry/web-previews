@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Film, TV & Production | Preview — propertygoddess.africa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<span class="pg-page-name" data-page="Film, TV & Production" style="display:none"></span>
+
+<!-- Preview Ribbon -->
+<div class="preview-ribbon">
+  <div><span class="badge">New Page</span>Film, TV &amp; Production — Merges Film, TV &amp; Production pages. Same grid layout. All locations link to Johannesburg.</div>
+  <div class="pg-nav-links">
+    <a href="homepage.html">&larr; Homepage</a>
+    <a href="property-development-sales.html">Next: Property Development &amp; Sales &rarr;</a>
+  </div>
+</div>
+
+<!-- Site Nav -->
+<nav class="pg-nav">
+  <a href="homepage.html" class="pg-logo-text">Property Goddess Africa</a>
+  <ul class="pg-menu">
+    <li><a href="film-tv-production.html" class="active">FILM, TV &amp; PRODUCTION</a></li>
+    <li><a href="property-development-sales.html">PROPERTY DEVELOPMENT &amp; SALES</a></li>
+    <li><a href="events.html">EVENTS &amp; LOCATION CONFERENCING</a></li>
+    <li><a href="about.html">ABOUT US</a></li>
+    <li><a href="#contact" class="btn-quote">REQUEST A QUOTE</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="pg-hero" style="min-height:60vh;">
+  <div class="pg-hero-bg" style="background-image:url('https://propertygoddess.africa/wp-content/uploads/2026/03/1-johannesburg.jpg');"></div>
+  <div class="pg-hero-overlay"></div>
+  <div class="pg-hero-content">
+    <h1>Film, TV &amp; Production</h1>
+    <p class="slogan">Cinematic locations across South Africa</p>
+  </div>
+</section>
+
+<!-- Location Grid -->
+<section class="pg-section">
+  <div style="text-align:center;margin-bottom:60px;">
+    <h2 class="pg-section-title">Our Locations</h2>
+    <div class="gold-divider"></div>
+    <p class="pg-section-sub">Select a region to explore available properties</p>
+    <p style="font-size:10px;color:rgba(198,167,94,0.6);letter-spacing:1.5px;margin-top:8px;">All locations currently link to the Johannesburg section — additional regions to be added</p>
+  </div>
+
+  <div class="location-grid">
+
+    <!-- Johannesburg -->
+    <div class="location-card" onclick="openLocationModal('johannesburg')">
+      <img src="https://propertygoddess.africa/wp-content/uploads/2026/03/1-johannesburg.jpg" alt="Johannesburg" loading="lazy">
+      <div class="location-card-info">
+        <div class="location-card-name">Johannesburg</div>
+        <div class="location-card-actions">
+          <button class="btn-more-info" onclick="event.stopPropagation();openLocationModal('johannesburg')">More Info</button>
+          <button class="btn-raq" onclick="event.stopPropagation();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Quote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cape Town -->
+    <div class="location-card" onclick="openLocationModal('johannesburg')">
+      <img src="https://propertygoddess.africa/wp-content/uploads/2026/03/2-cape-town.jpg" alt="Cape Town" loading="lazy">
+      <div class="location-card-info">
+        <div class="location-card-name">Cape Town</div>
+        <div class="location-card-actions">
+          <button class="btn-more-info" onclick="event.stopPropagation();openLocationModal('johannesburg')">More Info</button>
+          <button class="btn-raq" onclick="event.stopPropagation();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Quote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Durban -->
+    <div class="location-card" onclick="openLocationModal('johannesburg')">
+      <img src="https://propertygoddess.africa/wp-content/uploads/2026/03/3-durban.jpg" alt="Durban" loading="lazy">
+      <div class="location-card-info">
+        <div class="location-card-name">Durban</div>
+        <div class="location-card-actions">
+          <button class="btn-more-info" onclick="event.stopPropagation();openLocationModal('johannesburg')">More Info</button>
+          <button class="btn-raq" onclick="event.stopPropagation();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Quote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pretoria -->
+    <div class="location-card" onclick="openLocationModal('johannesburg')">
+      <img src="https://propertygoddess.africa/wp-content/uploads/2026/03/4-pretoria.jpg" alt="Pretoria" loading="lazy">
+      <div class="location-card-info">
+        <div class="location-card-name">Pretoria</div>
+        <div class="location-card-actions">
+          <button class="btn-more-info" onclick="event.stopPropagation();openLocationModal('johannesburg')">More Info</button>
+          <button class="btn-raq" onclick="event.stopPropagation();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Quote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stellenbosch -->
+    <div class="location-card" onclick="openLocationModal('johannesburg')">
+      <img src="https://propertygoddess.africa/wp-content/uploads/2026/03/5-stellenbosch.jpg" alt="Stellenbosch" loading="lazy">
+      <div class="location-card-info">
+        <div class="location-card-name">Stellenbosch</div>
+        <div class="location-card-actions">
+          <button class="btn-more-info" onclick="event.stopPropagation();openLocationModal('johannesburg')">More Info</button>
+          <button class="btn-raq" onclick="event.stopPropagation();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Quote</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact / Request a Quote anchor -->
+<section id="contact" style="padding:80px 40px;text-align:center;border-top:1px solid var(--border);">
+  <h2 class="pg-section-title">Request a Quote</h2>
+  <div class="gold-divider"></div>
+  <p class="pg-section-sub">Get in touch to discuss your production requirements</p>
+  <p style="font-size:13px;color:var(--grey);margin-bottom:30px;">Contact us at <a href="mailto:newlocations@propertygoddess.africa" style="color:var(--gold);text-decoration:none;">newlocations@propertygoddess.africa</a> or call <a href="tel:+27799863670" style="color:var(--gold);text-decoration:none;">+27 79 986 3670</a></p>
+  <a href="mailto:newlocations@propertygoddess.africa" class="btn-enquire">Enquire Now</a>
+</section>
+
+<!-- Footer -->
+<footer class="pg-footer">
+  <div class="pg-footer-inner">
+    <div class="pg-footer-brand">
+      <div class="brand-name">Property Goddess Africa</div>
+      <p>Luxury locations for film, TV and production across South Africa.</p>
+    </div>
+    <div class="pg-footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="film-tv-production.html">Film, TV &amp; Production</a></li>
+        <li><a href="property-development-sales.html">Property Development &amp; Sales</a></li>
+        <li><a href="events.html">Events &amp; Location Conferencing</a></li>
+      </ul>
+    </div>
+    <div class="pg-footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#contact">Request a Quote</a></li>
+      </ul>
+    </div>
+    <div class="pg-footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@propertygoddess.africa">info@propertygoddess.africa</a></li>
+        <li><a href="tel:+27799863670">+27 79 986 3670</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pg-footer-bottom">&copy; 2026 Property Goddess Africa</div>
+</footer>
+
+<!-- Modal -->
+<div id="modal-overlay" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <img class="modal-img" src="" alt="">
+    <div class="modal-title"></div>
+    <div class="modal-subtitle"></div>
+    <div class="modal-desc"></div>
+    <div class="modal-actions">
+      <a href="#contact" class="btn-more-info" onclick="closeModal()">Request a Quote</a>
+    </div>
+  </div>
+</div>
+
+<!-- Approval Bar -->
+<div class="approval-bar">
+  <span class="approval-label">Reviewing: <strong>Film, TV &amp; Production</strong> — Grid layout, hover states, modal popup working correctly?</span>
+  <div class="approval-actions">
+    <button class="btn-request" id="btn-request">Request Changes</button>
+    <button class="btn-approve" id="btn-approve">Approve this page ✓</button>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+<script>
+const locationData = {
+  johannesburg: {
+    img: 'https://propertygoddess.africa/wp-content/uploads/2026/03/1-johannesburg.jpg',
+    name: 'Johannesburg',
+    subtitle: 'Sandton & Surrounds — Multiple Properties Available',
+    desc: 'Our Johannesburg portfolio features a collection of luxury estates across Sandton, Fourways, and the Northern Suburbs. These properties have hosted productions for Netflix, MTV, Showmax, and major commercial brands. Each estate offers dramatic architectural lines, manicured grounds, and flexible indoor-outdoor spaces perfect for any production format.'
+  }
+};
+function openLocationModal(key) {
+  const d = locationData[key];
+  if (d) openModal(d);
+}
+</script>
+</body>
+</html>
