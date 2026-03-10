@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events &amp; Location Conferencing — Property Goddess Africa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #0B0B0B;
+  color: #F5F5F5;
+  padding-top: 38px;
+}
+
+/* Preview banner */
+.preview-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(198,167,94,0.15);
+  border-bottom: 1px solid rgba(198,167,94,0.3);
+  padding: 8px 20px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #C6A75E;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 99999;
+}
+
+/* Nav */
+nav {
+  position: sticky;
+  top: 38px;
+  background: #0B0B0B;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(198,167,94,0.1);
+}
+.logo img { height: 50px; width: auto; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  color: #F5F5F5;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  font-weight: 400;
+}
+.nav-links a:hover { color: #C6A75E; }
+.nav-links a.active { color: #C6A75E; font-weight: 600; }
+.btn-quote {
+  background: #C6A75E;
+  color: #0B0B0B !important;
+  padding: 12px 28px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease !important;
+}
+.btn-quote:hover { background: #d4b97a !important; }
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #C6A75E;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 38px;
+  left: 0; right: 0; bottom: 0;
+  background: #0B0B0B;
+  z-index: 9998;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: #F5F5F5;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.mobile-menu a:hover { color: #C6A75E; }
+.mobile-menu .btn-quote-mobile {
+  background: #C6A75E;
+  color: #0B0B0B !important;
+  padding: 14px 36px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.mobile-close {
+  position: absolute;
+  top: 60px; right: 30px;
+  background: none;
+  border: none;
+  color: #C6A75E;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  min-height: 600px;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+              url('https://propertygoddess.africa/wp-content/uploads/2026/03/1-ocean-s-edge-estate-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 58px;
+  font-weight: 400;
+  color: #C6A75E;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease both;
+}
+.hero .subtitle {
+  font-size: 14px;
+  color: #F5F5F5;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+/* Gold divider */
+.gold-divider {
+  width: 60px;
+  height: 1px;
+  background: #C6A75E;
+  margin: 20px auto;
+}
+
+/* Section heading */
+.section-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #C6A75E;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: #C6A75E;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 13px;
+  color: #B3B3B3;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+/* Categories section */
+.categories-section {
+  padding: 100px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Category cards grid */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 80px;
+}
+.category-card {
+  background: #161616;
+  border: 1px solid rgba(198,167,94,0.1);
+  border-top: 3px solid transparent;
+  padding: 48px 36px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: default;
+  border-radius: 4px;
+}
+.category-card:hover {
+  border-top-color: #C6A75E;
+  background: #1a1a1a;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 50px rgba(0,0,0,0.4);
+}
+.category-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C6A75E;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: block;
+}
+.category-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #C6A75E;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+.category-desc {
+  font-size: 13px;
+  color: #808080;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+
+/* Coming soon banner */
+.coming-soon-section {
+  background: #0d0d0d;
+  border-top: 1px solid rgba(198,167,94,0.1);
+  border-bottom: 1px solid rgba(198,167,94,0.1);
+  padding: 100px 60px;
+  text-align: center;
+}
+.coming-soon-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid rgba(198,167,94,0.2);
+  padding: 60px 40px;
+}
+.coming-soon-inner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #C6A75E;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.coming-soon-inner p {
+  font-size: 14px;
+  color: #B3B3B3;
+  line-height: 1.8;
+  margin-bottom: 32px;
+  letter-spacing: 0.3px;
+}
+.stay-tuned-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #C6A75E;
+  margin-bottom: 16px;
+}
+
+/* Btn enquire */
+.btn-enquire {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 14px 36px;
+  background: transparent;
+  color: #C6A75E;
+  border: 1px solid #C6A75E;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+.btn-enquire:hover { background: #C6A75E; color: #0B0B0B; }
+
+/* Contact section */
+.contact-section {
+  padding: 80px 60px;
+  text-align: center;
+}
+.contact-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #C6A75E;
+  margin-bottom: 16px;
+}
+.contact-section p {
+  font-size: 13px;
+  color: #B3B3B3;
+  max-width: 500px;
+  margin: 0 auto 32px;
+  line-height: 1.8;
+}
+.contact-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: #808080;
+  letter-spacing: 1px;
+  align-items: center;
+}
+.contact-links a {
+  color: #C6A75E;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+.contact-links a:hover { opacity: 0.7; }
+
+/* Footer */
+footer {
+  padding: 60px 120px;
+  border-top: 1px solid #222;
+  background: #0B0B0B;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+.footer-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #C6A75E;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  font-size: 13px;
+  color: #808080;
+  line-height: 1.8;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C6A75E;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a {
+  color: #808080;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+.footer-col ul li a:hover { color: #C6A75E; }
+.footer-bottom {
+  border-top: 1px solid #222;
+  padding-top: 24px;
+  text-align: center;
+  font-size: 11px;
+  color: #808080;
+  letter-spacing: 1px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Mobile responsive */
+@media (max-width: 1024px) {
+  nav { padding: 16px 30px; }
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  .hero h1 { font-size: 40px; }
+  .categories-section { padding: 60px 30px; }
+  .coming-soon-section { padding: 60px 30px; }
+  .contact-section { padding: 60px 30px; }
+  footer { padding: 60px 30px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: 450px; background-attachment: scroll; }
+  .hero h1 { font-size: 28px; }
+  .category-grid { grid-template-columns: 1fr; }
+  .coming-soon-inner { padding: 36px 24px; }
+  footer { padding: 40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  PREVIEW &mdash; propertygoddess.africa Update 3 &nbsp;&middot;&nbsp; Pixel-perfect reference clone with full modal system
+</div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">&#x2715;</button>
+  <a href="film-tv-production.html">Film, TV &amp; Production</a>
+  <a href="property-development-sales.html">Property Development &amp; Sales</a>
+  <a href="events.html" class="active">Events &amp; Location Conferencing</a>
+  <a href="about.html">About Us</a>
+  <a href="request-a-quote.html" class="btn-quote-mobile">Request a Quote</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="logo"><a href="homepage.html"><img src="assets/logo.png" alt="Property Goddess Africa"></a></div>
+  <ul class="nav-links">
+    <li><a href="film-tv-production.html">Film, TV &amp; Production</a></li>
+    <li><a href="property-development-sales.html">Property Development &amp; Sales</a></li>
+    <li><a href="events.html" class="active">Events &amp; Location Conferencing</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="request-a-quote.html" class="btn-quote">Request a Quote</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMobileMenu()">&#9776;</button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Events &amp; Location Conferencing</h1>
+  <p class="subtitle">Exclusive Venue Hire for Events, Conferences &amp; Corporate Functions</p>
+</section>
+
+<!-- Event Categories -->
+<section class="categories-section">
+  <div style="text-align:center; margin-bottom:60px;">
+    <p class="section-label">&#10022; What We Offer</p>
+    <h2 class="section-title">Event Types</h2>
+    <div class="gold-divider"></div>
+    <p class="section-sub">Our luxury estates are available for a range of exclusive events</p>
+  </div>
+
+  <div class="category-grid">
+
+    <div class="category-card">
+      <span class="category-label">Corporate</span>
+      <div class="category-title">Corporate Events</div>
+      <div class="category-desc">Board meetings, corporate retreats, strategy sessions, and executive functions in a luxury setting that commands respect and inspires creativity.</div>
+    </div>
+
+    <div class="category-card">
+      <span class="category-label">Private</span>
+      <div class="category-title">Private Functions</div>
+      <div class="category-desc">Birthdays, celebrations, and social gatherings hosted at some of South Africa's most breathtaking private estates. Intimate or grand, we curate the experience.</div>
+    </div>
+
+    <div class="category-card">
+      <span class="category-label">Premieres</span>
+      <div class="category-title">Film Premieres</div>
+      <div class="category-desc">Red carpet events and film premiere screenings. Our estates provide the perfect cinematic backdrop for high-profile launches attended by industry leaders.</div>
+    </div>
+
+    <div class="category-card">
+      <span class="category-label">Launches</span>
+      <div class="category-title">Product Launches</div>
+      <div class="category-desc">Luxury brand activations and product reveals in environments that match the prestige of your brand. From automotive to fashion, every launch deserves the perfect stage.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Coming Soon -->
+<section class="coming-soon-section">
+  <div class="coming-soon-inner">
+    <p class="stay-tuned-label">&#10022; Stay Tuned</p>
+    <h2>Coming Soon</h2>
+    <div class="gold-divider"></div>
+    <p>Our full events portfolio is being curated. In the meantime, contact our team directly to discuss your event requirements. We will match you with the perfect property for your occasion.</p>
+    <a href="mailto:newlocations@propertygoddess.africa" class="btn-enquire">Enquire About Events</a>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <p class="section-label">&#10022; Get In Touch</p>
+  <h2>Ready to Host Your Event?</h2>
+  <div class="gold-divider"></div>
+  <p>Our team is here to make your event unforgettable. Reach out to discuss venue options across our South African portfolio.</p>
+  <div class="contact-links">
+    <a href="mailto:newlocations@propertygoddess.africa">newlocations@propertygoddess.africa</a>
+    <span>&middot;</span>
+    <a href="tel:+27799863670">+27 79 986 3670</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Property Goddess Africa</div>
+      <p>Luxury locations for film, TV and production across South Africa. Curated estates and properties perfect for your next production.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="film-tv-production.html">Film TV &amp; Production</a></li>
+        <li><a href="property-development-sales.html">Property Dev &amp; Sales</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="request-a-quote.html">Request a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@propertygoddess.africa">info@propertygoddess.africa</a></li>
+        <li><a href="mailto:newlocations@propertygoddess.africa">newlocations@propertygoddess.africa</a></li>
+        <li><a href="tel:+27799863670">+27 79 986 3670</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Property Goddess Africa &nbsp;&middot;&nbsp; CWS Poetic Artistry
+  </div>
+</footer>
+
+<script>
+function openMobileMenu() {
+  document.getElementById('mobileMenu').classList.add('open');
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+document.querySelectorAll('.mobile-menu a').forEach(function(link) {
+  link.addEventListener('click', closeMobileMenu);
+});
+</script>
+</body>
+</html>
