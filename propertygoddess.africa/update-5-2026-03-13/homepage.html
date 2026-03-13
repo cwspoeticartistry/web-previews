@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage — Property Goddess Africa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #0B0B0B;
+  color: #F5F5F5;
+  padding-top: 38px;
+}
+
+/* Preview banner */
+.preview-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(198,167,94,0.15);
+  border-bottom: 1px solid rgba(198,167,94,0.3);
+  padding: 8px 20px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #C6A75E;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 99999;
+}
+
+/* Nav */
+nav {
+  position: sticky;
+  top: 38px;
+  background: #0B0B0B;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(198,167,94,0.1);
+}
+.logo img { height: 50px; width: auto; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  color: #F5F5F5;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  font-weight: 400;
+}
+.nav-links a:hover { color: #C6A75E; }
+.nav-links a.active { color: #C6A75E; }
+.btn-quote {
+  background: #C6A75E;
+  color: #0B0B0B !important;
+  padding: 12px 28px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease !important;
+}
+.btn-quote:hover { background: #d4b97a !important; }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #C6A75E;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 38px;
+  left: 0; right: 0; bottom: 0;
+  background: #0B0B0B;
+  z-index: 9998;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: #F5F5F5;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.mobile-menu a:hover { color: #C6A75E; }
+.mobile-menu .btn-quote-mobile {
+  background: #C6A75E;
+  color: #0B0B0B !important;
+  padding: 14px 36px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.mobile-close {
+  position: absolute;
+  top: 60px; right: 30px;
+  background: none;
+  border: none;
+  color: #C6A75E;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  min-height: 950px;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('assets/images/hero-update4.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 400;
+  color: #C6A75E;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease both;
+}
+.hero .slogan {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #C6A75E;
+  margin-bottom: 50px;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+.hero-btn {
+  border: 1px solid #C6A75E;
+  padding: 20px 60px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #C6A75E;
+  background: rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+.hero-btn:hover {
+  background: #C6A75E;
+  color: #0B0B0B;
+  transform: translateY(-2px);
+}
+
+/* Gold divider */
+.gold-divider {
+  width: 60px;
+  height: 1px;
+  background: #C6A75E;
+  margin: 20px auto;
+}
+
+/* Section heading */
+.section-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #C6A75E;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: #C6A75E;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 13px;
+  color: #B3B3B3;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+/* Productions section */
+.productions-section {
+  padding: 100px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Production card — alternating layout */
+.production-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 100px;
+  align-items: center;
+}
+.production-card.reverse { direction: rtl; }
+.production-card.reverse > * { direction: ltr; }
+
+.production-img {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.production-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.production-card:hover .production-img img {
+  transform: scale(1.05);
+}
+.production-info {
+  padding: 20px 0;
+}
+.production-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C6A75E;
+  border: 1px solid #C6A75E;
+  padding: 8px 16px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.production-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #F5F5F5;
+  margin-bottom: 20px;
+}
+.production-desc {
+  font-size: 14px;
+  color: #B3B3B3;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  letter-spacing: 0.3px;
+}
+.production-link {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C6A75E;
+  text-decoration: none;
+  border: 1px solid #C6A75E;
+  padding: 16px 35px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.production-link:hover {
+  background: #C6A75E;
+  color: #0B0B0B;
+}
+
+/* Footer */
+footer {
+  padding: 60px 120px;
+  border-top: 1px solid #222;
+  background: #0B0B0B;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+.footer-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #C6A75E;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  font-size: 13px;
+  color: #808080;
+  line-height: 1.8;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C6A75E;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a {
+  color: #808080;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+.footer-col ul li a:hover { color: #C6A75E; }
+.footer-bottom {
+  border-top: 1px solid #222;
+  padding-top: 24px;
+  text-align: center;
+  font-size: 11px;
+  color: #808080;
+  letter-spacing: 1px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Mobile responsive */
+@media (max-width: 1024px) {
+  nav { padding: 16px 30px; }
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  .hero h1 { font-size: 48px; }
+  .hero-btn { padding: 16px 32px; font-size: 12px; }
+  .productions-section { padding: 60px 30px; }
+  .production-card { grid-template-columns: 1fr; gap: 30px; }
+  .production-card.reverse { direction: ltr; }
+  .production-img { height: 320px; }
+  footer { padding: 60px 30px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: 700px; background-attachment: scroll; }
+  .hero h1 { font-size: 36px; }
+  .hero .slogan { font-size: 16px; }
+  .hero-btn { padding: 14px 24px; font-size: 11px; letter-spacing: 2px; }
+  .section-title { font-size: 28px; }
+  footer { padding: 40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  PREVIEW &mdash; propertygoddess.africa Update 5 &nbsp;&middot;&nbsp; Pixel-perfect reference clone with full modal system
+</div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">&#x2715;</button>
+  <a href="homepage.html">Home</a>
+  <a href="film-tv-production.html">Film, TV &amp; Production</a>
+  <a href="property-development-sales.html">Property Development &amp; Sales</a>
+  <a href="car-rentals.html">Car Rentals</a>
+  <a href="events.html">Events &amp; Location Conferencing</a>
+  <a href="about.html">About Us</a>
+  <a href="request-a-quote.html" class="btn-quote-mobile">Request a Quote</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="logo"><a href="homepage.html"><img src="assets/logo.png" alt="Property Goddess Africa"></a></div>
+  <ul class="nav-links">
+    <li><a href="homepage.html" class="active">Home</a></li>
+    <li><a href="film-tv-production.html">Film, TV &amp; Production</a></li>
+    <li><a href="property-development-sales.html">Property Development &amp; Sales</a></li>
+    <li><a href="car-rentals.html">Car Rentals</a></li>
+    <li><a href="events.html">Events &amp; Location Conferencing</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="request-a-quote.html" class="btn-quote">Request a Quote</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMobileMenu()">&#9776;</button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Property Goddess Africa</h1>
+  <p class="slogan">We dare you to dream in colour</p>
+  <div class="hero-buttons">
+    <a href="film-tv-production.html" class="hero-btn">Film &amp; TV</a>
+  </div>
+</section>
+
+<!-- Featured Productions -->
+<section class="productions-section">
+  <div style="text-align:center; margin-bottom: 80px;">
+    <p class="section-label">&#10022; Featured Productions</p>
+    <h2 class="section-title">Our Portfolio</h2>
+    <div class="gold-divider"></div>
+    <p class="section-sub">Luxury locations for film, TV and production across South Africa</p>
+  </div>
+
+  <!-- Card 1 -->
+  <div class="production-card">
+    <div class="production-img">
+      <img src="assets/images/2-the-last-light.jpg" alt="The Last Light">
+    </div>
+    <div class="production-info">
+      <p class="production-tag">Drama Series</p>
+      <h3 class="production-title">The Last Light</h3>
+      <p class="production-desc">A critically acclaimed drama series filmed across three of our luxury Johannesburg estates. The production team transformed our modern villa into a cinematic masterpiece over a 6-week shoot.</p>
+      <a href="film-tv-production.html" class="production-link">Explore Similar Locations &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Card 2 (reversed) -->
+  <div class="production-card reverse">
+    <div class="production-img">
+      <img src="assets/images/3-essence-campaign-dior.jpg" alt="Essence Campaign Dior">
+    </div>
+    <div class="production-info">
+      <p class="production-tag">Commercial Campaign</p>
+      <h3 class="production-title">Essence Campaign &mdash; Dior</h3>
+      <p class="production-desc">High-fashion commercial production utilising our Cape Town oceanfront property. The minimalist architecture and natural light created the perfect backdrop for this international campaign.</p>
+      <a href="film-tv-production.html" class="production-link">Explore Similar Locations &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="production-card">
+    <div class="production-img">
+      <img src="assets/images/4-boundless-netflix-original.jpg" alt="Boundless Netflix Original">
+    </div>
+    <div class="production-info">
+      <p class="production-tag">Netflix Original Series</p>
+      <h3 class="production-title">Boundless &mdash; Netflix Original</h3>
+      <p class="production-desc">Netflix chose our Durban beachfront compound for their latest original series. The property's sweeping ocean views and contemporary design were featured prominently throughout all eight episodes.</p>
+      <a href="film-tv-production.html" class="production-link">Explore Similar Locations &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Card 4 (reversed) -->
+  <div class="production-card reverse">
+    <div class="production-img">
+      <img src="assets/images/5-velocity-bmw-south-africa.jpg" alt="Velocity BMW South Africa">
+    </div>
+    <div class="production-info">
+      <p class="production-tag">Automotive Commercial</p>
+      <h3 class="production-title">Velocity &mdash; BMW South Africa</h3>
+      <p class="production-desc">A high-energy automotive commercial leveraging the dramatic driveways and architectural lines of our Sandton estate. Sleek. Fast. Luxurious.</p>
+      <a href="film-tv-production.html" class="production-link">Explore Similar Locations &rarr;</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- Footer -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Property Goddess Africa</div>
+      <p>Luxury locations for film, TV and production across South Africa. Curated estates and properties perfect for your next production.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="film-tv-production.html">Film TV &amp; Production</a></li>
+        <li><a href="property-development-sales.html">Property Dev &amp; Sales</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="request-a-quote.html">Request a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@propertygoddess.africa">info@propertygoddess.africa</a></li>
+        <li><a href="mailto:newlocations@propertygoddess.africa">newlocations@propertygoddess.africa</a></li>
+        <li><a href="tel:+27799863670">+27 79 986 3670</a></li>
+        <li><a href="#">@property_goddess</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Property Goddess Africa &nbsp;&middot;&nbsp; CWS Poetic Artistry
+  </div>
+</footer>
+
+<script>
+function openMobileMenu() {
+  document.getElementById('mobileMenu').classList.add('open');
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+document.querySelectorAll('.mobile-menu a').forEach(function(link) {
+  link.addEventListener('click', closeMobileMenu);
+});
+</script>
+</body>
+</html>
