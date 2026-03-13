@@ -247,28 +247,19 @@ footer { padding: 60px 120px; border-top: 1px solid #222; background: #0B0B0B; }
 @media (max-width: 768px) {
   .hero { min-height: 450px; background-attachment: scroll; } .hero h1 { font-size: 32px; }
   footer { padding: 40px 20px; }
-  /* Grid keeps 3 columns — only padding inside each tile adjusts */
+  .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .ig-tile.featured { grid-column: span 2; grid-row: span 1; aspect-ratio: 2 / 1; }
+  .ig-tile.featured .ig-overlay-city { font-size: 24px; }
+  .ig-tile.featured .ig-label-city { font-size: 20px; }
+  .ig-label-city { font-size: 14px; }
+  .ig-overlay-city { font-size: 18px; }
+  .ig-outer { padding: 0 10px; }
   .grid-header { padding: 40px 20px 24px; }
-  .ig-label { padding: 14px 12px 12px; }
-  .ig-label-city { font-size: 13px; letter-spacing: 1px; }
-  .ig-tile.featured .ig-label-city { font-size: 18px; }
-  .ig-overlay { padding: 14px; }
-  .ig-overlay-city { font-size: 16px; letter-spacing: 2px; }
-  .ig-tile.featured .ig-overlay-city { font-size: 22px; }
-  .ig-overlay-btn { font-size: 9px; padding: 9px 16px; letter-spacing: 2px; }
-  .ig-badge { font-size: 8px; top: 8px; right: 8px; padding: 4px 8px; }
 }
 @media (max-width: 480px) {
-  /* Grid stays 3 columns — tighten padding further on small phones */
-  .grid-header { padding: 28px 16px 16px; }
-  .ig-label { padding: 10px 8px 8px; }
-  .ig-label-city { font-size: 11px; letter-spacing: 0.5px; }
-  .ig-tile.featured .ig-label-city { font-size: 14px; }
-  .ig-overlay { padding: 10px; }
-  .ig-overlay-city { font-size: 13px; }
-  .ig-tile.featured .ig-overlay-city { font-size: 18px; }
-  .ig-overlay-btn { font-size: 8px; padding: 7px 12px; }
-  .ig-badge { font-size: 7px; top: 6px; right: 6px; padding: 3px 7px; }
+  .ig-grid { grid-template-columns: 1fr; gap: 12px; }
+  .ig-tile.featured { grid-column: span 1; grid-row: span 1; aspect-ratio: 16 / 9; }
+  .ig-outer { padding: 0 12px; }
 }
 </style>
 </head>
