@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Development &amp; Sales — Property Goddess Africa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+body { font-family: 'Montserrat', sans-serif; background: #0B0B0B; color: #F5F5F5; padding-top: 38px; }
+.preview-banner { position: fixed; top: 0; left: 0; right: 0; background: rgba(198,167,94,0.15); border-bottom: 1px solid rgba(198,167,94,0.3); padding: 8px 20px; font-size: 11px; letter-spacing: 1.5px; color: #C6A75E; text-align: center; font-family: 'Montserrat', sans-serif; z-index: 99999; }
+nav { position: sticky; top: 38px; background: #0B0B0B; padding: 20px 60px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid rgba(198,167,94,0.1); }
+.logo img { height: 50px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a { color: #F5F5F5; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s ease; font-weight: 400; }
+.nav-links a:hover { color: #C6A75E; }
+.nav-links a.active { color: #C6A75E; font-weight: 600; }
+.btn-quote { background: #C6A75E; color: #0B0B0B !important; padding: 12px 28px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; border-radius: 10px; font-weight: 600; text-decoration: none; transition: background 0.3s ease !important; }
+.btn-quote:hover { background: #d4b97a !important; }
+.hamburger { display: none; background: none; border: none; color: #C6A75E; font-size: 24px; cursor: pointer; }
+.mobile-menu { display: none; position: fixed; top: 38px; left: 0; right: 0; bottom: 0; background: #0B0B0B; z-index: 9998; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: #F5F5F5; text-decoration: none; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; transition: color 0.3s ease; }
+.mobile-menu a:hover { color: #C6A75E; }
+.mobile-menu .btn-quote-mobile { background: #C6A75E; color: #0B0B0B !important; padding: 14px 36px; border-radius: 10px; font-weight: 600; }
+.mobile-close { position: absolute; top: 60px; right: 30px; background: none; border: none; color: #C6A75E; font-size: 28px; cursor: pointer; }
+.hero { min-height: 600px; background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('assets/images/1-the-winelands-manor-1.jpg'); background-size: cover; background-position: center; background-attachment: fixed; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 20px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 400; color: #C6A75E; margin-bottom: 20px; animation: fadeInUp 0.8s ease both; }
+.hero .subtitle { font-size: 14px; color: #F5F5F5; letter-spacing: 3px; text-transform: uppercase; animation: fadeInUp 0.8s ease 0.2s both; }
+.gold-divider { width: 60px; height: 1px; background: #C6A75E; margin: 20px auto; }
+.section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #C6A75E; text-align: center; margin-bottom: 16px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 400; color: #C6A75E; text-align: center; margin-bottom: 16px; }
+.section-sub { font-size: 13px; color: #B3B3B3; text-align: center; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 60px; }
+.properties-section { padding: 100px 60px; max-width: 1400px; margin: 0 auto; }
+.property-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.property-card { background: #1C1C1C; border: 1px solid rgba(198,167,94,0.2); border-radius: 10px; overflow: hidden; transition: all 0.3s ease; }
+.property-card:hover { border-color: rgba(198,167,94,0.6); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+.property-card-img-wrap { position: relative; cursor: pointer; overflow: hidden; }
+.property-card-img-wrap img { width: 100%; height: 250px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.property-card:hover .property-card-img-wrap img { transform: scale(1.04); }
+.property-img-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; background: rgba(0,0,0,0.35); transition: opacity 0.3s ease; }
+.property-card-img-wrap:hover .property-img-overlay { opacity: 1; }
+.property-img-overlay span { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #C6A75E; font-weight: 600; border: 1px solid #C6A75E; padding: 8px 18px; font-family: 'Montserrat', sans-serif; }
+.property-card-body { padding: 24px; }
+.property-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; color: #C6A75E; letter-spacing: 1px; margin-bottom: 6px; }
+.property-meta { font-size: 11px; color: #808080; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+.property-price { font-size: 15px; color: #F5F5F5; font-weight: 500; letter-spacing: 0.5px; margin-bottom: 20px; }
+.property-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-more-info { display: inline-block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; padding: 10px 20px; background: #C6A75E; color: #0B0B0B; border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; transition: background 0.3s ease; border-radius: 4px; }
+.btn-more-info:hover { background: #d4b97a; }
+.btn-enquire { display: inline-block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; padding: 10px 20px; background: transparent; color: #C6A75E; border: 1px solid #C6A75E; text-decoration: none; transition: all 0.3s ease; border-radius: 4px; }
+.btn-enquire:hover { background: #C6A75E; color: #0B0B0B; }
+
+/* Modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 9000; display: flex; align-items: center; justify-content: center; padding: 40px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-box { background: #1C1C1C; border: 1px solid rgba(198,167,94,0.3); border-radius: 4px; max-width: 640px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; }
+.modal-close { position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.6); border: 1px solid rgba(198,167,94,0.4); color: #F5F5F5; font-size: 20px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 50%; transition: all 0.3s ease; z-index: 10; }
+.modal-close:hover { background: rgba(198,167,94,0.2); }
+
+/* Carousel */
+.carousel-wrap { position: relative; width: 100%; height: 300px; overflow: hidden; background: #111; }
+.carousel-img { width: 100%; height: 300px; object-fit: cover; display: block; transition: opacity 0.3s ease; }
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.55); border: 1px solid rgba(198,167,94,0.4); color: #C6A75E; font-size: 26px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 50%; transition: all 0.3s ease; z-index: 5; line-height: 1; }
+.carousel-btn:hover { background: rgba(198,167,94,0.25); }
+.carousel-prev { left: 14px; }
+.carousel-next { right: 14px; }
+.carousel-dots { position: absolute; bottom: 12px; left: 0; right: 0; display: flex; justify-content: center; gap: 6px; }
+.carousel-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(198,167,94,0.35); cursor: pointer; transition: background 0.3s ease; }
+.carousel-dot.active { background: #C6A75E; }
+
+.modal-body { padding: 32px 36px; }
+.modal-prop-name { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 400; color: #C6A75E; letter-spacing: 2px; margin-bottom: 6px; }
+.modal-prop-location { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #808080; margin-bottom: 24px; }
+.modal-stats { display: flex; margin-bottom: 28px; border: 1px solid rgba(198,167,94,0.15); border-radius: 4px; overflow: hidden; }
+.modal-stat { flex: 1; padding: 14px 12px; text-align: center; border-right: 1px solid rgba(198,167,94,0.15); }
+.modal-stat:last-child { border-right: none; }
+.modal-stat-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #808080; margin-bottom: 6px; }
+.modal-stat-value { font-size: 12px; color: #C6A75E; letter-spacing: 0.5px; font-weight: 500; }
+.modal-features-heading { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #C6A75E; margin-bottom: 14px; font-weight: 600; }
+.modal-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.modal-features li { font-size: 13px; color: #B3B3B3; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start; }
+.modal-features li::before { content: '\2605'; color: #C6A75E; flex-shrink: 0; font-size: 10px; margin-top: 2px; }
+.modal-lifestyle { font-size: 13px; color: #B3B3B3; line-height: 1.8; margin-bottom: 20px; letter-spacing: 0.3px; font-style: italic; }
+.modal-price-note { font-size: 12px; color: #808080; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; }
+.modal-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-inquire-now { display: inline-block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; padding: 12px 28px; background: #C6A75E; color: #0B0B0B; text-decoration: none; border-radius: 10px; transition: background 0.3s ease; }
+.btn-inquire-now:hover { background: #d4b97a; }
+
+.list-property-cta { background: #111; border-top: 1px solid rgba(198,167,94,0.1); border-bottom: 1px solid rgba(198,167,94,0.1); padding: 100px 60px; text-align: center; }
+.list-property-cta h2 { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; color: #C6A75E; margin-bottom: 16px; }
+.list-property-cta p { font-size: 14px; color: #B3B3B3; max-width: 560px; margin: 0 auto 36px; line-height: 1.8; letter-spacing: 0.3px; }
+footer { padding: 60px 120px; border-top: 1px solid #222; background: #0B0B0B; }
+.footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; max-width: 1200px; margin: 0 auto 40px; }
+.footer-brand-name { font-family: 'Playfair Display', serif; font-size: 20px; color: #C6A75E; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+.footer-brand p { font-size: 13px; color: #808080; line-height: 1.8; max-width: 280px; }
+.footer-col h4 { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #C6A75E; margin-bottom: 20px; font-weight: 600; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a { color: #808080; text-decoration: none; font-size: 13px; letter-spacing: 0.5px; transition: color 0.3s ease; }
+.footer-col ul li a:hover { color: #C6A75E; }
+.footer-bottom { border-top: 1px solid #222; padding-top: 24px; text-align: center; font-size: 11px; color: #808080; letter-spacing: 1px; max-width: 1200px; margin: 0 auto; }
+@media (max-width: 1024px) {
+  nav { padding: 16px 30px; } .nav-links { display: none; } .hamburger { display: block; }
+  .hero h1 { font-size: 42px; } .properties-section { padding: 60px 30px; }
+  .list-property-cta { padding: 60px 30px; } footer { padding: 60px 30px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  .hero { min-height: 450px; background-attachment: scroll; } .hero h1 { font-size: 32px; }
+  .property-grid { grid-template-columns: 1fr; }
+  .modal-stats { flex-direction: column; }
+  .modal-stat { border-right: none; border-bottom: 1px solid rgba(198,167,94,0.15); }
+  .modal-stat:last-child { border-bottom: none; }
+  footer { padding: 40px 20px; }
+}
+</style>
+</head>
+<body>
+<div class="preview-banner">PREVIEW &mdash; propertygoddess.africa Update 5 &nbsp;&middot;&nbsp; Pixel-perfect reference clone with carousel modals</div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">&#x2715;</button>
+  <a href="homepage.html">Home</a>
+  <a href="film-tv-production.html">Film, TV &amp; Production</a>
+  <a href="property-development-sales.html">Property Development &amp; Sales</a>
+  <a href="car-rentals.html">Car Rentals</a>
+  <a href="events.html">Events &amp; Location Conferencing</a>
+  <a href="about.html">About Us</a>
+  <a href="request-a-quote.html" class="btn-quote-mobile">Request a Quote</a>
+</div>
+
+<nav>
+  <div class="logo"><a href="homepage.html"><img src="assets/logo.png" alt="Property Goddess Africa"></a></div>
+  <ul class="nav-links">
+    <li><a href="homepage.html">Home</a></li>
+    <li><a href="film-tv-production.html">Film, TV &amp; Production</a></li>
+    <li><a href="property-development-sales.html" class="active">Property Development &amp; Sales</a></li>
+    <li><a href="car-rentals.html">Car Rentals</a></li>
+    <li><a href="events.html">Events &amp; Location Conferencing</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="request-a-quote.html" class="btn-quote">Request a Quote</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMobileMenu()">&#9776;</button>
+</nav>
+
+<section class="hero">
+  <h1>Property Development &amp; Sales</h1>
+  <p class="subtitle">Luxury Estates Available for Purchase &amp; Rental</p>
+</section>
+
+<section class="properties-section">
+  <div style="text-align:center; margin-bottom:60px;">
+    <p class="section-label">&#10022; Available Properties</p>
+    <h2 class="section-title">Curated Estates</h2>
+    <div class="gold-divider"></div>
+    <p class="section-sub">Exceptional properties for discerning buyers and investors</p>
+  </div>
+  <div class="property-grid" style="grid-template-columns: minmax(320px, 520px); justify-content: center;">
+
+    <div class="property-card">
+      <div class="property-card-img-wrap" onclick="openPropertyModal('illovo')">
+        <img src="assets/images/illovo/illovo-2.jpg" alt="Illovo Johannesburg">
+        <div class="property-img-overlay"><span>View Details</span></div>
+      </div>
+      <div class="property-card-body">
+        <div class="property-name">Illovo, Johannesburg</div>
+        <div class="property-meta">Illovo &nbsp;&middot;&nbsp; Luxury Multi-Level Estate</div>
+        <div class="property-price" style="color:#C6A75E; font-weight:600; font-size:17px;">R14 000 000.00</div>
+        <div class="property-actions">
+          <button class="btn-more-info" onclick="openPropertyModal('illovo')">More Info</button>
+          <a href="mailto:newlocations@propertygoddess.africa?subject=Illovo Johannesburg Enquiry" class="btn-enquire">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="list-property-cta" id="contact">
+  <p class="section-label">&#10022; Join Our Portfolio</p>
+  <h2>List Your Property</h2>
+  <div class="gold-divider"></div>
+  <p>Own a luxury mansion, modern home or event-friendly property? Property Goddess Africa is expanding its exclusive portfolio and inviting homeowners to list with us.</p>
+  <a href="about.html" class="btn-enquire" style="font-size:11px; padding:14px 36px; border-radius:10px;">Learn More &rarr;</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Property Goddess Africa</div>
+      <p>Luxury locations for film, TV and production across South Africa.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="film-tv-production.html">Film TV &amp; Production</a></li>
+        <li><a href="property-development-sales.html">Property Dev &amp; Sales</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="request-a-quote.html">Request a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@propertygoddess.africa">info@propertygoddess.africa</a></li>
+        <li><a href="mailto:newlocations@propertygoddess.africa">newlocations@propertygoddess.africa</a></li>
+        <li><a href="tel:+27799863670">+27 79 986 3670</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 Property Goddess Africa &nbsp;&middot;&nbsp; CWS Poetic Artistry</div>
+</footer>
+
+<!-- Property Modal with Carousel -->
+<div class="modal-overlay" id="propertyModalOverlay" onclick="closePropertyModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closePropertyModal()">&#x2715;</button>
+    <div class="carousel-wrap">
+      <img class="carousel-img" id="carouselImg" src="" alt="">
+      <button class="carousel-btn carousel-prev" onclick="carouselPrev()">&#8249;</button>
+      <button class="carousel-btn carousel-next" onclick="carouselNext()">&#8250;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-prop-name" id="propModalName"></div>
+      <div class="modal-prop-location" id="propModalLocation"></div>
+      <div class="modal-stats" id="propModalStats"></div>
+      <div class="modal-features-heading">Key Features</div>
+      <ul class="modal-features" id="propModalFeatures"></ul>
+      <p class="modal-lifestyle" id="propModalLifestyle"></p>
+      <p class="modal-price-note" id="propModalPrice">R14 000 000.00</p>
+      <div class="modal-actions">
+        <a id="propModalInquire" href="mailto:newlocations@propertygoddess.africa" class="btn-inquire-now">Inquire Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BASE = 'assets/images/illovo/';
+
+const propertyData = {
+  illovo: {
+    images: [BASE+'illovo-2.jpg', BASE+'illovo-1.jpg', BASE+'illovo-3.jpg', BASE+'illovo-4.jpg',
+             BASE+'illovo-5.jpg', BASE+'illovo-6.jpg', BASE+'illovo-7.jpg', BASE+'illovo-8.jpg',
+             BASE+'illovo-9.jpg', BASE+'illovo-10.jpg'],
+    name: 'Illovo, Johannesburg',
+    location: 'Illovo &nbsp;&middot;&nbsp; Johannesburg',
+    stats: [
+      {label:'Type', value:'Multi-Level Estate'},
+      {label:'Ideal Use', value:'Residence &amp; Film &amp; Events'},
+      {label:'Price', value:'R14 000 000.00'}
+    ],
+    features: [
+      'Resort-style curved swimming pool with manicured estate grounds',
+      'Grand reception hall with crystal chandelier and double-height staircase',
+      'Marble flooring throughout all principal spaces',
+      'Multiple luxury bedroom suites each with private garden access',
+      'Formal entertaining rooms with baroque-revival furnishings',
+      'Professional billiards and recreation room',
+      'On-site cafe facility',
+      'Multi-level architecture with double garaging',
+      'Expansive glass sliding doors to private estate garden'
+    ],
+    lifestyle: 'An exceptional multi-level estate in Illovo — Johannesburg\'s most prestigious address. Resort-calibre amenities, embassy-grade finishes, and spaces that transition seamlessly from private residence to high-end production or event venue.',
+    mailto: 'mailto:newlocations@propertygoddess.africa?subject=Illovo Johannesburg Enquiry'
+  }
+};
+
+let carouselImages = [];
+let carouselIndex = 0;
+
+function updateCarousel() {
+  const img = document.getElementById('carouselImg');
+  img.style.opacity = '0';
+  setTimeout(() => {
+    img.src = carouselImages[carouselIndex];
+    img.style.opacity = '1';
+  }, 150);
+  // Update dots
+  const dots = document.querySelectorAll('.carousel-dot');
+  dots.forEach((d, i) => d.classList.toggle('active', i === carouselIndex));
+}
+
+function carouselPrev() {
+  carouselIndex = (carouselIndex - 1 + carouselImages.length) % carouselImages.length;
+  updateCarousel();
+}
+function carouselNext() {
+  carouselIndex = (carouselIndex + 1) % carouselImages.length;
+  updateCarousel();
+}
+
+function openPropertyModal(key) {
+  const d = propertyData[key];
+  if (!d) return;
+  // Setup carousel
+  carouselImages = d.images;
+  carouselIndex = 0;
+  document.getElementById('carouselImg').src = carouselImages[0];
+  // Dots
+  const dotsEl = document.getElementById('carouselDots');
+  dotsEl.innerHTML = carouselImages.map((_, i) =>
+    `<span class="carousel-dot${i===0?' active':''}" onclick="carouselIndex=${i};updateCarousel()"></span>`
+  ).join('');
+  // Content
+  document.getElementById('propModalName').textContent = d.name;
+  document.getElementById('propModalLocation').innerHTML = d.location;
+  document.getElementById('propModalStats').innerHTML = d.stats.map(s =>
+    `<div class="modal-stat"><div class="modal-stat-label">${s.label}</div><div class="modal-stat-value">${s.value}</div></div>`
+  ).join('');
+  document.getElementById('propModalFeatures').innerHTML = d.features.map(f => `<li>${f}</li>`).join('');
+  document.getElementById('propModalLifestyle').textContent = d.lifestyle;
+  document.getElementById('propModalInquire').href = d.mailto;
+  document.getElementById('propertyModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePropertyModal() {
+  document.getElementById('propertyModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closePropertyModalOutside(e) {
+  if (e.target === document.getElementById('propertyModalOverlay')) closePropertyModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePropertyModal(); });
+
+// Carousel keyboard nav
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('propertyModalOverlay').classList.contains('open')) return;
+  if (e.key === 'ArrowLeft') carouselPrev();
+  if (e.key === 'ArrowRight') carouselNext();
+});
+
+function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+document.querySelectorAll('.mobile-menu a').forEach(l => l.addEventListener('click', closeMobileMenu));
+</script>
+</body>
+</html>
