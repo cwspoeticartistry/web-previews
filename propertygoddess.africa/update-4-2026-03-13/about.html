@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Property Goddess Africa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #0B0B0B;
+  color: #F5F5F5;
+  padding-top: 38px;
+}
+
+/* Preview banner */
+.preview-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(198,167,94,0.15);
+  border-bottom: 1px solid rgba(198,167,94,0.3);
+  padding: 8px 20px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #C6A75E;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 99999;
+}
+
+/* Nav */
+nav {
+  position: sticky;
+  top: 38px;
+  background: #0B0B0B;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(198,167,94,0.1);
+}
+.logo img { height: 50px; width: auto; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  color: #F5F5F5;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  font-weight: 400;
+}
+.nav-links a:hover { color: #C6A75E; }
+.nav-links a.active { color: #C6A75E; font-weight: 600; }
+.btn-quote {
+  background: #C6A75E;
+  color: #0B0B0B !important;
+  padding: 12px 28px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease !important;
+}
+.btn-quote:hover { background: #d4b97a !important; }
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #C6A75E;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 38px;
+  left: 0; right: 0; bottom: 0;
+  background: #0B0B0B;
+  z-index: 9998;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: #F5F5F5;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.mobile-menu a:hover { color: #C6A75E; }
+.mobile-menu .btn-quote-mobile {
+  background: #C6A75E;
+  color: #0B0B0B !important;
+  padding: 14px 36px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.mobile-close {
+  position: absolute;
+  top: 60px; right: 30px;
+  background: none;
+  border: none;
+  color: #C6A75E;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  min-height: 600px;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+              url('assets/images/1-the-glass-pavilion-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  font-weight: 400;
+  color: #C6A75E;
+  margin-bottom: 0;
+  animation: fadeInUp 0.8s ease both;
+}
+
+/* Gold divider */
+.gold-divider {
+  width: 60px;
+  height: 1px;
+  background: #C6A75E;
+  margin: 24px 0;
+}
+
+/* Main content */
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+/* Main heading */
+.about-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: #C6A75E;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.about-sub-heading {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #B3B3B3;
+  margin-bottom: 36px;
+  letter-spacing: 0.5px;
+}
+.about-content p {
+  font-size: 14px;
+  color: #B3B3B3;
+  line-height: 1.9;
+  letter-spacing: 0.3px;
+  margin-bottom: 24px;
+}
+
+/* We Place label */
+.we-place-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C6A75E;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.tag {
+  background: rgba(198,167,94,0.08);
+  border: 1px solid rgba(198,167,94,0.35);
+  color: #C6A75E;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  font-weight: 600;
+}
+
+/* What We Offer box */
+.offer-box {
+  background: #0f0f0f;
+  border: 1px solid rgba(198,167,94,0.2);
+  padding: 40px;
+  margin: 40px 0;
+}
+.offer-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #C6A75E;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.offer-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.offer-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 13px;
+  color: #F5F5F5;
+  letter-spacing: 0.3px;
+  line-height: 1.7;
+}
+.offer-list li::before {
+  content: '\2726';
+  color: #C6A75E;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 11px;
+}
+
+/* Trust brands blockquote */
+.trust-brands {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #B3B3B3;
+  letter-spacing: 0.5px;
+  margin: 36px 0;
+  padding: 20px 28px;
+  border-left: 2px solid #C6A75E;
+  line-height: 1.7;
+}
+.trust-brands strong { color: #F5F5F5; font-style: normal; }
+
+/* Tagline */
+.tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #C6A75E;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 48px 0;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+/* Contact details */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(198,167,94,0.15);
+}
+.contact-item .contact-label {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #808080;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.contact-item a,
+.contact-item span {
+  font-size: 13px;
+  color: #F5F5F5;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+  display: block;
+}
+.contact-item a:hover { color: #C6A75E; }
+
+/* Footer */
+footer {
+  padding: 60px 120px;
+  border-top: 1px solid #222;
+  background: #0B0B0B;
+  margin-top: 60px;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+.footer-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #C6A75E;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  font-size: 13px;
+  color: #808080;
+  line-height: 1.8;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C6A75E;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a {
+  color: #808080;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+.footer-col ul li a:hover { color: #C6A75E; }
+.footer-bottom {
+  border-top: 1px solid #222;
+  padding-top: 24px;
+  text-align: center;
+  font-size: 11px;
+  color: #808080;
+  letter-spacing: 1px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Mobile responsive */
+@media (max-width: 1024px) {
+  nav { padding: 16px 30px; }
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  .hero h1 { font-size: 42px; }
+  .about-content { padding: 60px 30px; }
+  footer { padding: 60px 30px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: 450px; background-attachment: scroll; }
+  .hero h1 { font-size: 28px; }
+  .about-heading { font-size: 22px; }
+  .tagline { font-size: 16px; }
+  .about-content { padding: 40px 20px; }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
+  footer { padding: 40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  PREVIEW &mdash; propertygoddess.africa Update 4 &nbsp;&middot;&nbsp; Pixel-perfect reference clone with full modal system
+</div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">&#x2715;</button>
+  <a href="homepage.html">Home</a>
+  <a href="film-tv-production.html">Film, TV &amp; Production</a>
+  <a href="property-development-sales.html">Property Development &amp; Sales</a>
+  <a href="car-rentals.html">Car Rentals</a>
+  <a href="events.html">Events &amp; Location Conferencing</a>
+  <a href="about.html">About Us</a>
+  <a href="request-a-quote.html" class="btn-quote-mobile">Request a Quote</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="logo"><a href="homepage.html"><img src="assets/logo.png" alt="Property Goddess Africa"></a></div>
+  <ul class="nav-links">
+    <li><a href="homepage.html">Home</a></li>
+    <li><a href="film-tv-production.html">Film, TV &amp; Production</a></li>
+    <li><a href="property-development-sales.html">Property Development &amp; Sales</a></li>
+    <li><a href="car-rentals.html">Car Rentals</a></li>
+    <li><a href="events.html">Events &amp; Location Conferencing</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="request-a-quote.html" class="btn-quote">Request a Quote</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMobileMenu()">&#9776;</button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>About Property Goddess Africa</h1>
+</section>
+
+<!-- Main Content -->
+<div class="about-content">
+
+  <h2 class="about-heading">Property Owners Wanted<br>List with Property Goddess Africa</h2>
+  <p class="about-sub-heading">Own a luxury mansion, modern home or event-friendly property?</p>
+
+  <div class="gold-divider"></div>
+
+  <p>Property Goddess Africa is expanding its exclusive portfolio and inviting homeowners with standout properties to list with us.</p>
+
+  <p>We connect exceptional properties with South Africa's most discerning production companies, brands, event organisers, and investors. Whether your space is a sprawling estate in Sandton or an oceanfront compound in Durban, if it has character, we want to represent it.</p>
+
+  <div style="margin: 36px 0 12px;">
+    <p class="we-place-label">We place properties in:</p>
+    <div class="tags">
+      <span class="tag">Events</span>
+      <span class="tag">TV &amp; Film Productions</span>
+      <span class="tag">Music Videos</span>
+      <span class="tag">Photoshoots</span>
+    </div>
+  </div>
+
+  <div class="offer-box">
+    <h3>What We Offer</h3>
+    <ul class="offer-list">
+      <li>Professional photography of your space</li>
+      <li>Access to premium, vetted clients</li>
+      <li>Full facilitation and property management</li>
+      <li>Clear contracts and seamless coordination</li>
+    </ul>
+  </div>
+
+  <div class="trust-brands">
+    <strong>Trusted by leading brands including Netflix, Showmax, MTV Base, Sony Music SA and Mzansi Magic.</strong>
+  </div>
+
+  <p>Turn your property into a high-value location while we protect, manage and market it with care. Our team handles everything from client vetting and scheduling to on-site support, so you get the returns without the stress.</p>
+
+  <div class="tagline">"Property is the stage. We curate the experience."</div>
+
+  <!-- Contact Details -->
+  <div class="contact-grid" id="contact">
+
+    <div class="contact-item">
+      <div class="contact-label">Enquiries &amp; Listings</div>
+      <a href="mailto:newlocations@propertygoddess.africa">newlocations@<br>propertygoddess.africa</a>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-label">General Enquiries</div>
+      <a href="mailto:info@propertygoddess.africa">info@propertygoddess.africa</a>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-label">Phone</div>
+      <a href="tel:+27799863670">+27 79 986 3670</a>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-label">Instagram</div>
+      <a href="#">@property_goddess</a>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-label">Facebook</div>
+      <a href="#">@progoddessafrica</a>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Property Goddess Africa</div>
+      <p>Luxury locations for film, TV and production across South Africa. Curated estates and properties perfect for your next production.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="film-tv-production.html">Film TV &amp; Production</a></li>
+        <li><a href="property-development-sales.html">Property Dev &amp; Sales</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="request-a-quote.html">Request a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@propertygoddess.africa">info@propertygoddess.africa</a></li>
+        <li><a href="mailto:newlocations@propertygoddess.africa">newlocations@propertygoddess.africa</a></li>
+        <li><a href="tel:+27799863670">+27 79 986 3670</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Property Goddess Africa &nbsp;&middot;&nbsp; CWS Poetic Artistry
+  </div>
+</footer>
+
+<script>
+function openMobileMenu() {
+  document.getElementById('mobileMenu').classList.add('open');
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+document.querySelectorAll('.mobile-menu a').forEach(function(link) {
+  link.addEventListener('click', closeMobileMenu);
+});
+</script>
+</body>
+</html>
