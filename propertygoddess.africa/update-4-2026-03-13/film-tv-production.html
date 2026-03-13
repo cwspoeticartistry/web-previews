@@ -8,17 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
 body { font-family: 'Montserrat', sans-serif; background: #0B0B0B; color: #F5F5F5; padding-top: 38px; }
+
 .preview-banner {
   position: fixed; top: 0; left: 0; right: 0;
   background: rgba(198,167,94,0.15); border-bottom: 1px solid rgba(198,167,94,0.3);
   padding: 8px 20px; font-size: 11px; letter-spacing: 1.5px; color: #C6A75E;
   text-align: center; font-family: 'Montserrat', sans-serif; z-index: 99999;
 }
+
+/* Nav */
 nav {
   position: sticky; top: 38px; background: #0B0B0B; padding: 20px 60px;
   display: flex; justify-content: space-between; align-items: center;
@@ -38,34 +40,192 @@ nav {
 .mobile-menu a:hover { color: #C6A75E; }
 .mobile-menu .btn-quote-mobile { background: #C6A75E; color: #0B0B0B !important; padding: 14px 36px; border-radius: 10px; font-weight: 600; }
 .mobile-close { position: absolute; top: 60px; right: 30px; background: none; border: none; color: #C6A75E; font-size: 28px; cursor: pointer; }
+
+/* Hero */
 .hero {
   min-height: 600px;
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/images/1-johannesburg.jpg');
   background-size: cover; background-position: center; background-attachment: fixed;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 20px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 80px 20px;
 }
 .hero h1 { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 400; color: #C6A75E; margin-bottom: 20px; animation: fadeInUp 0.8s ease both; }
 .hero .subtitle { font-size: 14px; color: #F5F5F5; letter-spacing: 3px; text-transform: uppercase; animation: fadeInUp 0.8s ease 0.2s both; }
+
+/* Gold divider */
 .gold-divider { width: 60px; height: 1px; background: #C6A75E; margin: 20px auto; }
 .section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #C6A75E; text-align: center; margin-bottom: 16px; }
 .section-title { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 400; color: #C6A75E; text-align: center; margin-bottom: 16px; }
-.section-sub { font-size: 13px; color: #B3B3B3; text-align: center; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 60px; }
-.locations-section { padding: 100px 60px; max-width: 1400px; margin: 0 auto; }
-.location-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.location-card { position: relative; overflow: hidden; cursor: pointer; border-radius: 4px; text-decoration: none; display: block; }
-.location-card img { width: 100%; height: 280px; object-fit: cover; filter: brightness(0.7); transition: filter 0.4s ease, transform 0.5s ease; display: block; }
-.location-card:hover img { filter: brightness(0.5); transform: scale(1.05); }
-.location-card-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%); }
-.location-card-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; color: #C6A75E; letter-spacing: 2px; margin-bottom: 12px; }
-.location-card-btn {
-  display: inline-block; opacity: 0; transform: translateY(10px);
-  transition: all 0.3s ease;
-  background: #C6A75E; color: #0B0B0B; border: none; padding: 8px 18px;
-  font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
+.section-sub { font-size: 13px; color: #B3B3B3; text-align: center; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0; }
+
+/* Section header above grid */
+.grid-header {
+  padding: 80px 60px 48px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
-.location-card:hover .location-card-btn { opacity: 1; transform: translateY(0); }
-.contact-section { background: #111; border-top: 1px solid rgba(198,167,94,0.15); padding: 80px 60px; text-align: center; }
+
+/* ===== INSTAGRAM GRID ===== */
+.ig-outer {
+  width: 100%;
+  padding: 0;
+  background: #0B0B0B;
+}
+
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 3px;
+  width: 100%;
+}
+
+/* All tiles share base styles */
+.ig-tile {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Featured tile — Johannesburg — spans 2 cols × 2 rows */
+.ig-tile.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: unset; /* height determined by 2-row span */
+}
+
+/* Images fill tiles */
+.ig-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease, filter 0.4s ease;
+  filter: brightness(0.75);
+}
+.ig-tile:hover img {
+  transform: scale(1.06);
+  filter: brightness(0.45);
+}
+
+/* Tile overlay */
+.ig-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: rgba(0,0,0,0.15);
+}
+.ig-tile:hover .ig-overlay { opacity: 1; }
+
+/* Always-visible bottom label */
+.ig-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 20px 18px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+  transition: opacity 0.35s ease;
+}
+.ig-tile:hover .ig-label { opacity: 0; }
+
+.ig-label-city {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #C6A75E;
+  letter-spacing: 2px;
+}
+.ig-tile.featured .ig-label-city { font-size: 28px; }
+
+/* Overlay content */
+.ig-overlay-city {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #C6A75E;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.ig-tile.featured .ig-overlay-city { font-size: 38px; }
+
+.ig-overlay-btn {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #0B0B0B;
+  background: #C6A75E;
+  padding: 10px 24px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+.ig-overlay-btn:hover { background: #d4b97a; }
+
+/* Status badge (Coming Soon) */
+.ig-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #C6A75E;
+  border: 1px solid rgba(198,167,94,0.5);
+  padding: 5px 10px;
+  background: rgba(11,11,11,0.7);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  border-radius: 3px;
+}
+
+/* CTA tile — dark background, no image */
+.ig-tile.cta-tile {
+  background: #111;
+  border: 3px solid rgba(198,167,94,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.ig-tile.cta-tile:hover { border-color: rgba(198,167,94,0.5); background: #181818; }
+.ig-tile.cta-tile img { display: none; }
+.cta-tile-icon { font-size: 32px; color: rgba(198,167,94,0.4); margin-bottom: 16px; line-height: 1; }
+.cta-tile-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #C6A75E;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.cta-tile-sub {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #808080;
+  text-align: center;
+}
+
+/* Footer */
 footer { padding: 60px 120px; border-top: 1px solid #222; background: #0B0B0B; }
 .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; max-width: 1200px; margin: 0 auto 40px; }
 .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 20px; color: #C6A75E; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
@@ -76,25 +236,37 @@ footer { padding: 60px 120px; border-top: 1px solid #222; background: #0B0B0B; }
 .footer-col ul li a { color: #808080; text-decoration: none; font-size: 13px; letter-spacing: 0.5px; transition: color 0.3s ease; }
 .footer-col ul li a:hover { color: #C6A75E; }
 .footer-bottom { border-top: 1px solid #222; padding-top: 24px; text-align: center; font-size: 11px; color: #808080; letter-spacing: 1px; max-width: 1200px; margin: 0 auto; }
+
+/* Responsive */
 @media (max-width: 1024px) {
   nav { padding: 16px 30px; } .nav-links { display: none; } .hamburger { display: block; }
-  .hero h1 { font-size: 42px; } .locations-section { padding: 60px 30px; }
+  .hero h1 { font-size: 42px; }
   footer { padding: 60px 30px; } .footer-inner { grid-template-columns: 1fr; gap: 40px; }
-  .contact-section { padding: 60px 30px; }
+  .grid-header { padding: 60px 30px 36px; }
 }
 @media (max-width: 768px) {
   .hero { min-height: 450px; background-attachment: scroll; } .hero h1 { font-size: 32px; }
-  .location-grid { grid-template-columns: 1fr; } footer { padding: 40px 20px; }
+  .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+  .ig-tile.featured { grid-column: span 2; grid-row: span 1; aspect-ratio: 2 / 1; }
+  .ig-tile.featured .ig-overlay-city { font-size: 24px; }
+  .ig-tile.featured .ig-label-city { font-size: 20px; }
+  footer { padding: 40px 20px; }
+  .ig-label-city { font-size: 14px; }
+  .ig-overlay-city { font-size: 18px; }
+}
+@media (max-width: 480px) {
+  .ig-grid { grid-template-columns: 1fr; gap: 2px; }
+  .ig-tile.featured { grid-column: span 1; grid-row: span 1; aspect-ratio: 1 / 1; }
 }
 </style>
 </head>
 <body>
-<div class="preview-banner">PREVIEW &mdash; propertygoddess.africa Update 4 &nbsp;&middot;&nbsp; Pixel-perfect reference clone</div>
+<div class="preview-banner">PREVIEW &mdash; propertygoddess.africa Update 4 &nbsp;&middot;&nbsp; Film, TV &amp; Production</div>
 
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="closeMobileMenu()">&#x2715;</button>
   <a href="homepage.html">Home</a>
-  <a href="film-tv-production.html">Film, TV &amp; Production</a>
+  <a href="film-tv-production.html" class="active">Film, TV &amp; Production</a>
   <a href="property-development-sales.html">Property Development &amp; Sales</a>
   <a href="car-rentals.html">Car Rentals</a>
   <a href="events.html">Events &amp; Location Conferencing</a>
@@ -121,65 +293,91 @@ footer { padding: 60px 120px; border-top: 1px solid #222; background: #0B0B0B; }
   <p class="subtitle">Cinematic locations across South Africa</p>
 </section>
 
-<section class="locations-section">
-  <div style="text-align:center; margin-bottom:60px;">
-    <p class="section-label">&#10022; Our Locations</p>
-    <h2 class="section-title">Explore Our Regions</h2>
-    <div class="gold-divider"></div>
-    <p class="section-sub">Select a region to explore available properties</p>
-  </div>
-  <div class="location-grid">
-
-    <a href="johannesburg.html" class="location-card">
-      <img src="assets/images/1-johannesburg.jpg" alt="Johannesburg">
-      <div class="location-card-overlay">
-        <div class="location-card-name">Johannesburg</div>
-        <span class="location-card-btn">View Locations</span>
-      </div>
-    </a>
-
-    <a href="cape-town.html" class="location-card">
-      <img src="assets/images/2-cape-town.jpg" alt="Cape Town">
-      <div class="location-card-overlay">
-        <div class="location-card-name">Cape Town</div>
-        <span class="location-card-btn">View Locations</span>
-      </div>
-    </a>
-
-    <a href="durban.html" class="location-card">
-      <img src="assets/images/3-durban.jpg" alt="Durban">
-      <div class="location-card-overlay">
-        <div class="location-card-name">Durban</div>
-        <span class="location-card-btn">View Locations</span>
-      </div>
-    </a>
-
-    <a href="pretoria.html" class="location-card">
-      <img src="assets/images/4-pretoria.jpg" alt="Pretoria">
-      <div class="location-card-overlay">
-        <div class="location-card-name">Pretoria</div>
-        <span class="location-card-btn">View Locations</span>
-      </div>
-    </a>
-
-    <a href="stellenbosch.html" class="location-card">
-      <img src="assets/images/5-stellenbosch.jpg" alt="Stellenbosch">
-      <div class="location-card-overlay">
-        <div class="location-card-name">Stellenbosch</div>
-        <span class="location-card-btn">View Locations</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<section class="contact-section" id="contact">
-  <p class="section-label">&#10022; Get In Touch</p>
-  <h2 class="section-title" style="font-size:32px;">Request a Quote</h2>
+<!-- Grid header -->
+<div class="grid-header">
+  <p class="section-label">&#10022; Our Locations</p>
+  <h2 class="section-title">Explore Our Regions</h2>
   <div class="gold-divider"></div>
-  <p style="font-size:13px; color:#B3B3B3; max-width:500px; margin:0 auto 32px; line-height:1.8; letter-spacing:0.5px;">Tell us about your production and we will connect you with the perfect location across South Africa.</p>
-  <a href="request-a-quote.html" style="display:inline-block; font-size:11px; letter-spacing:2px; text-transform:uppercase; font-weight:600; padding:14px 36px; background:#C6A75E; color:#0B0B0B; border-radius:10px; text-decoration:none;">Submit a Brief &rarr;</a>
-</section>
+  <p class="section-sub">Select a region to explore available properties</p>
+</div>
+
+<!-- Instagram-style grid -->
+<div class="ig-outer">
+  <div class="ig-grid">
+
+    <!-- Johannesburg — FEATURED 2×2 -->
+    <a href="johannesburg.html" class="ig-tile featured">
+      <img src="assets/images/1-johannesburg.jpg" alt="Johannesburg">
+      <div class="ig-label">
+        <div class="ig-label-city">Johannesburg</div>
+      </div>
+      <div class="ig-overlay">
+        <div class="ig-overlay-city">Johannesburg</div>
+        <span class="ig-overlay-btn">View Locations &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Cape Town — 1×1 -->
+    <a href="cape-town.html" class="ig-tile">
+      <img src="assets/images/2-cape-town.jpg" alt="Cape Town">
+      <span class="ig-badge">Coming Soon</span>
+      <div class="ig-label">
+        <div class="ig-label-city">Cape Town</div>
+      </div>
+      <div class="ig-overlay">
+        <div class="ig-overlay-city">Cape Town</div>
+        <span class="ig-overlay-btn">Coming Soon</span>
+      </div>
+    </a>
+
+    <!-- Durban — 1×1 -->
+    <a href="durban.html" class="ig-tile">
+      <img src="assets/images/3-durban.jpg" alt="Durban">
+      <span class="ig-badge">Coming Soon</span>
+      <div class="ig-label">
+        <div class="ig-label-city">Durban</div>
+      </div>
+      <div class="ig-overlay">
+        <div class="ig-overlay-city">Durban</div>
+        <span class="ig-overlay-btn">Coming Soon</span>
+      </div>
+    </a>
+
+    <!-- Pretoria — 1×1 -->
+    <a href="pretoria.html" class="ig-tile">
+      <img src="assets/images/4-pretoria.jpg" alt="Pretoria">
+      <span class="ig-badge">Coming Soon</span>
+      <div class="ig-label">
+        <div class="ig-label-city">Pretoria</div>
+      </div>
+      <div class="ig-overlay">
+        <div class="ig-overlay-city">Pretoria</div>
+        <span class="ig-overlay-btn">Coming Soon</span>
+      </div>
+    </a>
+
+    <!-- Stellenbosch — 1×1 -->
+    <a href="stellenbosch.html" class="ig-tile">
+      <img src="assets/images/5-stellenbosch.jpg" alt="Stellenbosch">
+      <span class="ig-badge">Coming Soon</span>
+      <div class="ig-label">
+        <div class="ig-label-city">Stellenbosch</div>
+      </div>
+      <div class="ig-overlay">
+        <div class="ig-overlay-city">Stellenbosch</div>
+        <span class="ig-overlay-btn">Coming Soon</span>
+      </div>
+    </a>
+
+    <!-- CTA Tile — 1×1 -->
+    <a href="request-a-quote.html" class="ig-tile cta-tile">
+      <div class="cta-tile-icon">&#10022;</div>
+      <div class="cta-tile-text">List Your Location</div>
+      <div class="cta-tile-sub">Submit a Brief &rarr;</div>
+    </a>
+
+  </div>
+</div>
 
 <footer>
   <div class="footer-inner">
@@ -192,6 +390,7 @@ footer { padding: 60px 120px; border-top: 1px solid #222; background: #0B0B0B; }
       <ul>
         <li><a href="film-tv-production.html">Film TV &amp; Production</a></li>
         <li><a href="property-development-sales.html">Property Dev &amp; Sales</a></li>
+        <li><a href="car-rentals.html">Car Rentals</a></li>
         <li><a href="events.html">Events</a></li>
         <li><a href="request-a-quote.html">Request a Quote</a></li>
       </ul>
