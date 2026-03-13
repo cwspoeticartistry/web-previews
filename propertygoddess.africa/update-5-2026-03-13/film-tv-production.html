@@ -245,18 +245,35 @@ footer { padding: 60px 120px; border-top: 1px solid #222; background: #0B0B0B; }
   .grid-header { padding: 60px 30px 36px; }
 }
 @media (max-width: 768px) {
-  .hero { min-height: 450px; background-attachment: scroll; } .hero h1 { font-size: 32px; }
-  .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
-  .ig-tile.featured { grid-column: span 2; grid-row: span 1; aspect-ratio: 2 / 1; }
-  .ig-tile.featured .ig-overlay-city { font-size: 24px; }
-  .ig-tile.featured .ig-label-city { font-size: 20px; }
+  .hero { min-height: 450px; background-attachment: scroll; }
+  .hero h1 { font-size: 32px; }
   footer { padding: 40px 20px; }
-  .ig-label-city { font-size: 14px; }
-  .ig-overlay-city { font-size: 18px; }
+
+  /* ── Instagram mobile: always 3 equal columns, edge-to-edge ── */
+  .ig-outer { padding: 0; margin: 0; }
+  .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+  /* Featured tile: full-width banner at top, landscape ratio */
+  .ig-tile.featured { grid-column: span 3; grid-row: span 1; aspect-ratio: 16 / 7; }
+  .ig-tile.featured .ig-overlay-city { font-size: 20px; }
+  .ig-tile.featured .ig-label-city { font-size: 16px; }
+
+  /* Scale down labels & badges for small square tiles */
+  .ig-label { padding: 10px 10px 8px; }
+  .ig-label-city { font-size: 11px; letter-spacing: 0.5px; }
+  .ig-overlay-city { font-size: 12px; letter-spacing: 1.5px; }
+  .ig-overlay-btn { font-size: 8px; padding: 7px 12px; letter-spacing: 2px; }
+  .ig-badge { font-size: 7px; top: 6px; right: 6px; padding: 3px 7px; letter-spacing: 1.5px; }
+
+  /* Tighter section header on mobile */
+  .grid-header { padding: 40px 16px 20px; }
 }
 @media (max-width: 480px) {
-  .ig-grid { grid-template-columns: 1fr; gap: 2px; }
-  .ig-tile.featured { grid-column: span 1; grid-row: span 1; aspect-ratio: 1 / 1; }
+  /* Keep 3 Instagram columns even on small phones */
+  .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .ig-tile.featured { grid-column: span 3; grid-row: span 1; aspect-ratio: 16 / 7; }
+  .grid-header { padding: 32px 16px 16px; }
+  .hero h1 { font-size: 26px; }
 }
 </style>
 </head>
